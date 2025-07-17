@@ -1,0 +1,51 @@
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 lg:my-16">
+        <article class="max-w-xl flex flex-col gap-3">
+            <h1 class="text-4xl font-bold sm:text-5xl lg:text-6xl text-gray-950">
+                Show Computer & Accessories
+            </h1>
+            <p class="text-lg md:text-xl text-gray-500">
+                Show laptops, desktops, monitors, tablets, PC gaming, hard drives and storage, accessories and more.
+            </p>
+            <button class="rounded-md px-4 py-2 text-gray-700 border border-gray-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 w-fit">
+                View More
+            </button>
+        </article>
+
+        <article id="controls-carousel" class="relative w-full max-w-screen-md mx-auto" data-carousel="static">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg sm:h-96">
+                @for (productOffer of this.productOffers;track $index){
+                    <div class="mt-8 sm:mt-28 lg:mt-24 hidden duration-700 ease-in-out" data-carousel-item>
+                        <app-product-offer [product]="productOffer"></app-product-offer>
+                    </div>
+                }
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400 group-hover:bg-gray-500 group-focus:ring-4 group-focus:ring-gray-200 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-400 group-hover:bg-gray-500 group-focus:ring-4 group-focus:ring-gray-200 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </article>
+    </section>
+    <section class="my-4 space-y-8">
+        <h2 class="text-center font-bold text-gray-950 text-3xl sm:text-4xl">Pick your favourite Product</h2>
+        <article class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            @for(product of this.products; track $index){
+                <app-home-product [product]="product "></app-home-product>
+            }
+        </article>
+    </section>
+
